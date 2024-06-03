@@ -1,0 +1,32 @@
+<div style="background-image: url('https://source.unsplash.com/1600x900/?city'); background-size: cover; background-position: center; height: 100vh; display: flex; justify-content: center; align-items: center;">
+  <div style="background-color: rgba(255, 255, 255, 0.8); padding: 20px; border-radius: 10px; max-width: 600px; text-align: center;">
+    <h1><%= @flat.name %></h1>
+    <p>Address <%= @flat.address %></p>
+    <!-- Map section -->
+    <div style="margin: 20px 0;">
+
+      <img src="https://source.unsplash.com/1600x900/?apartment" alt="Appartement Image" style="width: 100%; border-radius: 10px;">
+    </div>
+
+    <p><%= @flat.description %></p>
+
+    <!-- Font Awesome icons -->
+    <div style="margin-top: 20px;">
+      <i class="fas fa-bed"></i> <%= @flat.number_of_guests %> Guests
+    </div>
+    <div style="display: flex; justify-content: flex-end; margin-bottom: 7px;">
+       <%= number_to_currency(@flat.price_per_night) %> / night
+    </div>
+    <!-- Button section -->
+    <div style="display: flex; justify-content: space-around;">
+      <%= link_to edit_flat_path(@flat), class: "btn btn-primary" do %>
+        <i class="fa-solid fa-pencil"></i>
+      <% end %>
+      <%= link_to flat_path(@flat), data: {turbo_method: :delete, turbo_confirm: "Are you sure ? "} do %>
+        <i class="fa-solid fa-trash"></i>
+      <% end %>
+      <%= link_to "Back to all flats", flats_path, class: "btn btn-secondary" %>
+      <%# <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure ? "} %>
+    </div>
+  </div>
+</div>

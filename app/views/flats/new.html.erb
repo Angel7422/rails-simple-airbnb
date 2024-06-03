@@ -1,0 +1,16 @@
+<%= simple_form_for @flat do |f| %>
+  <div class="form-inputs">
+    <%= f.input :name, label: "Nom de l'appartement" %>
+    <%= f.input :address, label: "Adresse" %>
+    <%= f.input :description, label: "Description", as: :text %>
+    <%= f.input :price_per_night, label: "Prix par nuit" %>
+    <%= f.input :number_of_guests, label: "Nombre de voyageurs" %>
+    <%= f.input :image_url, :as => :hidden, :input_html => { :value => 'https://source.unsplash.com/random/800x600?house' } %>
+  </div>
+
+
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,22 @@
+
+<h1>All appartments availables</h1>
+
+<div class="row">
+  <% @flats.each do |flat| %>
+    <div class="col-md-4">
+      <div class="card mb-4 mt-5 shadow-sm">
+        <img src="<%= flat.image_url %>" class="card-img-top" alt="<%= flat.name %>">
+        <div class="card-body">
+          <h5 class="card-title"><%= flat.name %></h5>
+          <p class="card-text"><%= flat.description %></p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <%= link_to flat.name, flat_path(flat), class: "btn btn-sm btn-outline-secondary" %>
+            </div>
+            <small class="text-muted"><%= number_to_currency(flat.price_per_night) %> / nuit</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
